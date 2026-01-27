@@ -30,7 +30,13 @@
 
   <!-- FEATURED -->
   <section class="featured" id="buy">
-    <img src="assets/cover.png" alt="Book Cover">
+    <!-- CLICKABLE COVER -->
+    <img 
+      src="assets/cover.png" 
+      alt="Book Cover" 
+      class="cover"
+      onclick="openPreview()"
+    >
 
     <div class="details">
       <h2>Bought You Some Roses</h2>
@@ -48,7 +54,6 @@
 
       <!-- PAYFAST -->
       <form action="https://www.payfast.co.za/eng/process" method="post">
-        <!-- Replace with your real PayFast details -->
         <input type="hidden" name="merchant_id" value="YOUR_MERCHANT_ID">
         <input type="hidden" name="merchant_key" value="YOUR_MERCHANT_KEY">
         <input type="hidden" name="amount" value="50.00">
@@ -63,10 +68,25 @@
     </div>
   </section>
 
+  <!-- PREVIEW MODAL -->
+  <div class="preview-modal" id="previewModal" onclick="closePreview(event)">
+    <div class="preview-content">
+      <span class="close">&times;</span>
+
+      <img src="assets/preview1.png" alt="Preview page">
+      <img src="assets/preview2.png" alt="Preview page">
+      <img src="assets/preview3.png" alt="Preview page">
+      <img src="assets/preview4.png" alt="Preview page">
+      <img src="assets/preview5.png" alt="Preview page">
+      <img src="assets/preview6.png" alt="Preview page">
+      <img src="assets/preview7.png" alt="Preview page">
+    </div>
+  </div>
+
   <!-- ABOUT -->
   <section class="about">
     <p>
-      Nuverse SA is creative company from South Africa.  
+      Nuverse SA is a creative company from South Africa.  
       Words you keep.  
       Art you return to.
     </p>
@@ -78,5 +98,6 @@
     <p><a href="#">Instagram</a> · <a href="#">Contact</a></p>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
