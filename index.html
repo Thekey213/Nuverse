@@ -15,31 +15,23 @@
     <img src="assets/logo.png" alt="Nuverse Logo" class="logo">
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Bought You Some Roses</h1>
-    <p class="subtitle">A Nuverse Release</p>
-
-    <p class="description">
-      A poetry collection on love, absence, and the quiet things
-      we never say out loud.
-    </p>
-
-    <a href="#buy" class="cta">Buy the PDF — R50</a>
-  </section>
-
+ 
+ 
+  
   <!-- FEATURED -->
   <section class="featured" id="buy">
+
     <!-- CLICKABLE COVER -->
     <img 
       src="assets/cover.png" 
-      alt="Book Cover" 
+      alt="Book Cover"
       class="cover"
       onclick="openPreview()"
     >
 
     <div class="details">
       <h2>Bought You Some Roses</h2>
+
       <p>
         This collection moves through tenderness, longing,
         and memory — written for those who loved deeply,
@@ -52,18 +44,25 @@
         <li>Instant access after payment</li>
       </ul>
 
-      <!-- PAYFAST -->
+      <!-- PAYFAST FORM -->
       <form action="https://www.payfast.co.za/eng/process" method="post">
-        <input type="hidden" name="merchant_id" value="YOUR_MERCHANT_ID">
-        <input type="hidden" name="merchant_key" value="YOUR_MERCHANT_KEY">
-        <input type="hidden" name="amount" value="50.00">
+
+        <!-- REQUIRED -->
+        <input type="hidden" name="merchant_id" value="14917509">
+        <input type="hidden" name="merchant_key" value="2oojfrf7paire">
+
+        <!-- PRODUCT -->
         <input type="hidden" name="item_name" value="Bought You Some Roses (PDF)">
-        <input type="hidden" name="return_url" value="https://yourdomain.com/success.html">
-        <input type="hidden" name="cancel_url" value="https://yourdomain.com/cancel.html">
+        <input type="hidden" name="amount" value="50.00">
+
+        <!-- REDIRECTS -->
+        <input type="hidden" name="return_url" value="https://nuverse.co.za/success.html">
+        <input type="hidden" name="cancel_url" value="https://nuverse.co.za/cancel.html">
 
         <button type="submit" class="buy-btn">
           Pay with Card — R50
         </button>
+
       </form>
     </div>
   </section>
@@ -71,24 +70,23 @@
   <!-- PREVIEW MODAL -->
   <div class="preview-modal" id="previewModal" onclick="closePreview(event)">
     <div class="preview-content">
-      <span class="close">&times;</span>
+      <span class="close" onclick="closePreview(event)">&times;</span>
 
-      <img src="assets/preview1.png" alt="Preview page">
-      <img src="assets/preview2.png" alt="Preview page">
-      <img src="assets/preview3.png" alt="Preview page">
-      <img src="assets/preview4.png" alt="Preview page">
-      <img src="assets/preview5.png" alt="Preview page">
-      <img src="assets/preview6.png" alt="Preview page">
-      <img src="assets/preview7.png" alt="Preview page">
+      <img src="assets/preview1.png">
+      <img src="assets/preview2.png">
+      <img src="assets/preview3.png">
+      <img src="assets/preview4.png">
+      <img src="assets/preview5.png">
+      <img src="assets/preview6.png">
+      <img src="assets/preview7.png">
     </div>
   </div>
 
   <!-- ABOUT -->
   <section class="about">
     <p>
-      Nuverse SA is a creative company from South Africa.  
-      Words you keep.  
-      Art you return to.
+      Nuverse SA is a creative collective based in South Africa.<br>
+     
     </p>
   </section>
 
@@ -96,7 +94,7 @@
   <footer>
     <p>© 2026 nuverse.co.za</p>
     <p>
-      <a href="https://www.instagram.com/nuverse.sa/" target="_blank">Instagram</a> · 
+      <a href="https://www.instagram.com/nuverse.sa/" target="_blank">Instagram</a> ·
       <a href="contact.html">Contact</a> ·
       <a href="policy.html">Policy</a>
     </p>
