@@ -4,18 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Payment Successful — Nuverse</title>
+
+  <!-- Main CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <section class="hero" style="text-align:center; padding:100px 20px;">
-    <h1>Thank You for Your Purchase!</h1>
-    <p>You have successfully purchased <strong>Bought You Some Roses (PDF)</strong>.</p>
-    <p>Click the button below to download your PDF:</p>
-    <a href="assets/Bought_You_Some_Roses.pdf" download class="cta">Download PDF</a>
-    <p style="margin-top:30px;">
-      <a href="index.html">Back to Nuverse</a>
-    </p>
+  <!-- NAV / LOGO -->
+  <nav>
+    <img src="assets/logo.png" alt="Nuverse Logo" class="logo">
+  </nav>
+
+  <!-- CENTERED CONTENT (USES SAME GRID LOGIC) -->
+  <section class="featured" style="grid-template-columns: 1fr;">
+    <div class="details" style="text-align:center; justify-self:center;">
+
+      <h2>Thank You 🌹</h2>
+
+      <p style="margin-top:15px;">
+        Your payment was successful.
+      </p>
+
+      <p style="margin-top:10px;">
+        You’ve purchased <strong>Bought You Some Roses (PDF)</strong>.
+      </p>
+
+      <p style="margin-top:20px; opacity:0.85;">
+        Click below to download your copy instantly.
+      </p>
+
+      <!-- DIRECT DOWNLOAD -->
+      <a
+        href="https://drive.google.com/uc?export=download&id=FILE_ID"
+        class="buy-btn"
+        style="display:inline-block; margin-top:30px;"
+      >
+        Download PDF
+      </a>
+
+      <p style="margin-top:40px; opacity:0.6;">
+        If the download doesn’t start, tap the button again.
+      </p>
+
+      <p style="margin-top:30px;">
+        <a href="index.html" style="opacity:0.7;">Back to Nuverse</a>
+      </p>
+
+    </div>
   </section>
 
 </body>
