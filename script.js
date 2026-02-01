@@ -3,10 +3,33 @@ function openPreview() {
 }
 
 function closePreview(e) {
+  const modal = document.getElementById("previewModal");
+
   if (
-    e.target.classList.contains("preview-modal") ||
+    e.target === modal ||
     e.target.classList.contains("close")
   ) {
-    document.getElementById("previewModal").style.display = "none";
+    modal.style.display = "none";
+
+    const audio = modal.querySelector("audio");
+    if (audio) {
+      audio.pause();
+      audio.currentTime = 0;
+    }
   }
 }
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    const modal = document.getElementById("previewModal");
+    if (modal.style.display === "block") {
+      modal.style.display = "none";
+
+      const audio = modal.querySelector("audio");
+      if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    }
+  }
+});
