@@ -10,6 +10,68 @@
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    /* BOUNCING ROSE */
+    .bouncing-rose {
+      font-size: 4rem;
+      display: inline-block;
+      animation: bounce 1s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-30px) scale(1.1); }
+    }
+
+    /* WIGGLE ANIMATION FOR HEADING */
+    .wiggle-text {
+      display: inline-block;
+      animation: wiggle 0.5s ease-in-out 3;
+    }
+
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-5deg); }
+      75% { transform: rotate(5deg); }
+    }
+
+    /* PULSE ANIMATION FOR BUTTON */
+    .pulse-btn {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245, 245, 245, 0.7); }
+      50% { transform: scale(1.05); box-shadow: 0 0 20px 10px rgba(245, 245, 245, 0); }
+    }
+
+    /* SPARKLE EFFECT */
+    .sparkle {
+      position: fixed;
+      width: 4px;
+      height: 4px;
+      background: white;
+      border-radius: 50%;
+      animation: sparkle 1.5s ease-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes sparkle {
+      0% {
+        transform: scale(0);
+        opacity: 1;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1) translate(50px, 50px);
+        opacity: 0;
+      }
+    }
+
+  </style>
 </head>
 <body>
 
@@ -22,14 +84,14 @@
   <section class="featured" style="grid-template-columns: 1fr;">
     <div class="details" style="text-align:center; justify-self:center;">
 
-      <h2>Thank You 🌹</h2>
+      <h2 class="wiggle-text">Thank You</h2>
 
       <p style="margin-top:15px;">
         Your payment was successful.
       </p>
 
       <p style="margin-top:10px;">
-        You’ve purchased <strong>Bought You Some Roses (PDF)</strong>.
+        You've purchased <strong>Bought You Some Roses (PDF)</strong>.
       </p>
 
       <p style="margin-top:20px; opacity:0.85;">
@@ -39,14 +101,14 @@
       <!-- DIRECT DOWNLOAD -->
       <a
         href="https://drive.google.com/uc?export=download&id=FILE_ID"
-        class="buy-btn"
+        class="buy-btn pulse-btn"
         style="display:inline-block; margin-top:30px;"
       >
         Download PDF
       </a>
 
       <p style="margin-top:40px; opacity:0.6;">
-        If the download doesn’t start, tap the button again.
+        If the download doesn't start, tap the button again.
       </p>
 
       <p style="margin-top:30px;">
@@ -55,6 +117,32 @@
 
     </div>
   </section>
+
+  <script>
+    // CREATE SPARKLES
+    function createSparkles() {
+      for (let i = 0; i < 20; i++) {
+        setTimeout(() => {
+          const sparkle = document.createElement('div');
+          sparkle.className = 'sparkle';
+          sparkle.style.left = Math.random() * 100 + 'vw';
+          sparkle.style.top = Math.random() * 100 + 'vh';
+          sparkle.style.animationDelay = Math.random() * 1 + 's';
+          document.body.appendChild(sparkle);
+
+          setTimeout(() => sparkle.remove(), 3000);
+        }, i * 150);
+      }
+    }
+
+    // TRIGGER ALL ANIMATIONS ON LOAD
+    window.addEventListener('load', () => {
+      createSparkles();
+      
+      // REPEAT ANIMATIONS
+      setInterval(createSparkles, 4000);
+    });
+  </script>
 
 </body>
 </html>

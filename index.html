@@ -7,6 +7,34 @@
 
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  
+  <style>
+    /* SPARKLE EFFECT */
+    .sparkle {
+      position: fixed;
+      width: 4px;
+      height: 4px;
+      background: white;
+      border-radius: 50%;
+      animation: sparkle 1.5s ease-out infinite;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    @keyframes sparkle {
+      0% {
+        transform: scale(0);
+        opacity: 1;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1) translate(50px, 50px);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -35,7 +63,7 @@
       </p>
 
       <ul>
-        <li>29 pages</li>
+        <li>31 pages</li>
         <li>Digital PDF</li>
         <li>Instant access after payment</li>
       </ul>
@@ -106,5 +134,58 @@
   </footer>
 
   <script src="script.js"></script>
+  
+  <script>
+    // CREATE SPARKLES
+    function createSparkles() {
+      const coverWrapper = document.querySelector('.cover-wrapper');
+      const coverRect = coverWrapper ? coverWrapper.getBoundingClientRect() : null;
+      
+      for (let i = 0; i < 20; i++) {
+        setTimeout(() => {
+          let left, top;
+          let isValid = false;
+          
+          // Keep generating positions until we find one not on the cover
+          while (!isValid) {
+            left = Math.random() * 100;
+            top = Math.random() * 100;
+            
+            if (coverRect) {
+              const leftPx = (left / 100) * window.innerWidth;
+              const topPx = (top / 100) * window.innerHeight;
+              
+              // Check if position is NOT inside cover area
+              isValid = !(
+                leftPx >= coverRect.left &&
+                leftPx <= coverRect.right &&
+                topPx >= coverRect.top &&
+                topPx <= coverRect.bottom
+              );
+            } else {
+              isValid = true;
+            }
+          }
+          
+          const sparkle = document.createElement('div');
+          sparkle.className = 'sparkle';
+          sparkle.style.left = left + 'vw';
+          sparkle.style.top = top + 'vh';
+          sparkle.style.animationDelay = Math.random() * 1 + 's';
+          document.body.appendChild(sparkle);
+
+          setTimeout(() => sparkle.remove(), 3000);
+        }, i * 150);
+      }
+    }
+
+    // TRIGGER SPARKLES ON LOAD
+    window.addEventListener('load', () => {
+      createSparkles();
+      
+      // REPEAT SPARKLES EVERY 4 SECONDS
+      setInterval(createSparkles, 4000);
+    });
+  </script>
 </body>
 </html>
