@@ -3,11 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nuverse — Bought You Some Roses</title>
 
+  <!-- ✅ SEO TITLE -->
+  <title>Bought You Some Roses — Digital Poetry Book | Nuverse SA</title>
+
+  <!-- ✅ SEO META DESCRIPTION -->
+  <meta name="description" content="Bought You Some Roses is a digital poetry collection by Nuverse SA exploring love, longing, memory, and gentleness. Instant PDF download available after secure payment.">
+
+  <!-- ✅ SEO KEYWORDS -->
+  <meta name="keywords" content="poetry book, digital poetry, South African poetry, love poems, Bought You Some Roses, Nuverse SA, modern poetry, PDF poetry book">
+
+  <!-- ✅ AUTHOR -->
+  <meta name="author" content="Nuverse SA">
+
+  <!-- ✅ OPEN GRAPH (Instagram / WhatsApp / Facebook preview) -->
+  <meta property="og:title" content="Bought You Some Roses — Digital Poetry Book">
+  <meta property="og:description" content="A digital poetry collection exploring love, yearning, and memory. Instant PDF download after payment.">
+  <meta property="og:image" content="https://nuverse.co.za/assets/cover.png">
+  <meta property="og:url" content="https://nuverse.co.za">
+  <meta property="og:type" content="website">
+
+  <!-- ✅ TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bought You Some Roses — Digital Poetry Book">
+  <meta name="twitter:description" content="A digital poetry collection by Nuverse SA. Instant PDF download available.">
+  <meta name="twitter:image" content="https://nuverse.co.za/assets/cover.png">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-  
+
   <style>
     /* SPARKLE EFFECT */
     .sparkle {
@@ -22,17 +49,9 @@
     }
 
     @keyframes sparkle {
-      0% {
-        transform: scale(0);
-        opacity: 1;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: scale(1) translate(50px, 50px);
-        opacity: 0;
-      }
+      0% { transform: scale(0); opacity: 1; }
+      50% { opacity: 1; }
+      100% { transform: scale(1) translate(50px, 50px); opacity: 0; }
     }
   </style>
 </head>
@@ -91,7 +110,6 @@
     <div class="preview-content">
       <span class="close" onclick="closePreview(event)">&times;</span>
 
-       <!-- AUDIO PREVIEW -->
       <div class="audio-preview">
         <p class="audio-label">🎧 Listen to a review of the collection</p>
         <audio controls preload="none">
@@ -107,12 +125,9 @@
       <img src="assets/preview6.png">
       <img src="assets/preview7.png">
 
-       <!-- AUDIO PREVIEW -->
       <div class="audio-preview">
         <p class="audio-label">Buy Bought You Some Roses, today!</p>
-       
       </div>
-     
     </div>
   </div>
 
@@ -134,28 +149,23 @@
   </footer>
 
   <script src="script.js"></script>
-  
+
   <script>
-    // CREATE SPARKLES
     function createSparkles() {
       const coverWrapper = document.querySelector('.cover-wrapper');
       const coverRect = coverWrapper ? coverWrapper.getBoundingClientRect() : null;
-      
+
       for (let i = 0; i < 20; i++) {
         setTimeout(() => {
-          let left, top;
-          let isValid = false;
-          
-          // Keep generating positions until we find one not on the cover
+          let left, top, isValid = false;
+
           while (!isValid) {
             left = Math.random() * 100;
             top = Math.random() * 100;
-            
+
             if (coverRect) {
               const leftPx = (left / 100) * window.innerWidth;
               const topPx = (top / 100) * window.innerHeight;
-              
-              // Check if position is NOT inside cover area
               isValid = !(
                 leftPx >= coverRect.left &&
                 leftPx <= coverRect.right &&
@@ -166,12 +176,12 @@
               isValid = true;
             }
           }
-          
+
           const sparkle = document.createElement('div');
           sparkle.className = 'sparkle';
           sparkle.style.left = left + 'vw';
           sparkle.style.top = top + 'vh';
-          sparkle.style.animationDelay = Math.random() * 1 + 's';
+          sparkle.style.animationDelay = Math.random() + 's';
           document.body.appendChild(sparkle);
 
           setTimeout(() => sparkle.remove(), 3000);
@@ -179,11 +189,8 @@
       }
     }
 
-    // TRIGGER SPARKLES ON LOAD
     window.addEventListener('load', () => {
       createSparkles();
-      
-      // REPEAT SPARKLES EVERY 4 SECONDS
       setInterval(createSparkles, 4000);
     });
   </script>
